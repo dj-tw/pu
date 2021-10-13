@@ -15,10 +15,3 @@ def read():
 def read_schema():
     filename = 'data/pu2019_schema.json'
     return json.load(open(filename, 'r'))
-
-
-def read_pandas():
-    filename = 'data/pu2019.csv'
-
-
-

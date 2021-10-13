@@ -5,7 +5,8 @@ and the calendar-year replicate weights file (as opposed to the longitudinal rep
 separate downloads on the SIPP website.
 SIPP data are in person-month format, meaning each record represents one month for a specific person.
 Unique persons are identified using SSUID+PNUM. Unique households are identified using SSUID+ERESIDENCEID. For
-additional guidance on using SIPP data, please see the SIPP Users' Guide at <https://www.census.gov/programs-surveys/sipp/guidance/users-guide.html>
+additional guidance on using SIPP data, please see the SIPP Users'
+Guide at <https://www.census.gov/programs-surveys/sipp/guidance/users-guide.html>
 This code was written in Python 3, and requires version 0.24 or higher of the Pandas module.
 Note the use of 'usecols' in the first pd.read_csv statement. Most machines do not have enough memory to read
 the entire SIPP file into memory. Use 'usecols' to read in only the columns you are interested in. If you
@@ -119,7 +120,8 @@ def read_data(small=False, write_csv=False):
     print('REPWT100 mean:' + str(df_rw.REPWGT100.mean()))
 
     # Merge data and replicate weights on SSUID, PNUM, MONTHCODE
-    df = df_data.merge(df_rw, left_on=['SSUID', 'PNUM', 'MONTHCODE'], right_on=['SSUID', 'PNUM', 'MONTHCODE'])
+    df = df_data.merge(df_rw, left_on=['SSUID', 'PNUM', 'MONTHCODE'],
+                       right_on=['SSUID', 'PNUM', 'MONTHCODE'])
 
     # preview the merged data
     print(df.head())
