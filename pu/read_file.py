@@ -9,7 +9,7 @@ import json
 
 def read():
     filename = 'data/pu2019.csv'
-    return DictReader(open(filename, 'r'))
+    return (dict(row) for row in DictReader(open(filename, 'r'), delimiter='|'))
 
 
 def read_schema():

@@ -19,6 +19,8 @@ Refactored by David Johnston, dajohnst@thoughtworks.com
 # Import the pandas module. This code requires version 0.24 or higher
 # in order to use the Int64 and Float64 data types, which allow for
 # missing values
+
+from pu.util import get_base_columns
 import pandas as pd
 
 
@@ -49,27 +51,13 @@ def get_rw_schema():
     return rw_schema
 
 
-def get_base_columns():
-    # select the columns you want to keep
-    return [
-        # Common case-identification variables
-        'SSUID', 'PNUM', 'MONTHCODE', 'ERESIDENCEID', 'ERELRPE', 'SPANEL', 'SWAVE',
-        # The base weight and monthly in-survey-universe indicator
-        'WPFINWGT', 'RIN_UNIV',
-        # Common demographics variables, including age at time of interview (TAGE)
-        # and monthly age during the reference period (TAGE_EHC)
-        'ESEX', 'TAGE', 'TAGE_EHC', 'ERACE', 'EORIGIN', 'EEDUC',
-        # Additional variables for analysis
-        'TPTOTINC', 'RTANF_MNYN']
-
-
 def get_extra_columns():
     # get the extra columns, beyond base columns
     return []
 
 
 def get_columns():
-    columns = get_columns()
+    columns = get_base_columns()
     extra = get_extra_columns()
     return columns + extra
 

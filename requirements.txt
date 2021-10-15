@@ -3,5 +3,8 @@ pytest
 pytest-cov
 snakeviz
 pandas
+brunodb
+
+
 
 
