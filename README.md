@@ -137,7 +137,11 @@ log_income_female = [log10(i) for i in tot_income_female if i>0]
 add_hist_plot(log_income_men, fig, n_bins=30, color='red', alpha=0.4, 
               x_range=[0,6], legend='Female')
 show(fig)
-
-
 ```
+
+(Note this might duplicate data because there are multiple months in 
+each row)
+
+![Income](./images/income_plot.png)
+
 
