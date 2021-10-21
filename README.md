@@ -27,7 +27,7 @@ ipython
 ```
 
 ```
-from pu.read_pandas import read_pandas
+from pu.read_pandas import read_data
 data = read_pandas()
 ```
 
