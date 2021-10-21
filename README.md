@@ -139,8 +139,7 @@ add_hist_plot(log_income_men, fig, n_bins=30, color='red', alpha=0.4,
 show(fig)
 ```
 
-(Note this might duplicate data because there are multiple months in 
-each row)
+(Note this might duplicate data because each row is a (person, month) I think.)
 
 ![Income](./images/income_plot.png)
 
