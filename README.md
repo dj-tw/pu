@@ -92,3 +92,52 @@ list(r)
 # {'ERACE': 3.0, 'avg_income': 3054.328306454251},
 # {'ERACE': 4.0, 'avg_income': 1852.0821180077833}]
 ```
+
+Let's do some visualizations!
+
+
+Basic example of plotting a line
+ 
+```
+from bokeh.plotting import figure, show
+fig=figure()
+x = [1,2,3,4]
+y = [5,7,9,15]
+fig.circle(x, y)
+fig.line(x, y, color='red')
+show(fig)
+```
+
+A plot should have popped up in your browser. If you do this in a notebooks,
+the figures show up in-line.
+
+Let's plot some actual data. 
+```
+s=db.raw_sql_query('select TPTOTINC from pu where esex=1')
+tot_income_male = [float(i['TPTOTINC']) for i in s if i['TPTOTINC'] != '']
+
+from pu.plot_utils import add_hist_plot
+
+fig = figure()
+add_hist_plot(tot_income_male, fig)
+show(fig)
+
+
+from math import log10
+log_income_male = [log10(i) for i in tot_income_male if i>0]
+fig = figure(x_axis_label='log ( Total Income )',
+             y_axis_label='#', title='Total income distribution by gender')
+add_hist_plot(log_income_male, fig, n_bins=30, alpha=0.4, 
+              x_range=[0,6], legend='Male')
+show(fig)
+
+s=db.raw_sql_query('select TPTOTINC from pu where esex=2')
+tot_income_female = [float(i['TPTOTINC']) for i in s if i['TPTOTINC'] != '']
+log_income_female = [log10(i) for i in tot_income_female if i>0]
+add_hist_plot(log_income_men, fig, n_bins=30, color='red', alpha=0.4, 
+              x_range=[0,6], legend='Female')
+show(fig)
+
+
+```
+
