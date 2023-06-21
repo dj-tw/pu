@@ -1,4 +1,3 @@
-import json
 from brunodb import DBase
 from pu.util import get_base_columns, read_schema
 from pu.read_file import read as stream_all

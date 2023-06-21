@@ -124,7 +124,7 @@ show(fig)
 
 
 from math import log10
-log_income_male = [log10(i) for i in tot_income_male if i>0]
+log_income_male = [log10(i) for i in tot_income_male if i>0]bu
 fig = figure(x_axis_label='log ( Total Income )',
              y_axis_label='#', title='Total income distribution by gender')
 add_hist_plot(log_income_male, fig, n_bins=30, alpha=0.4, 

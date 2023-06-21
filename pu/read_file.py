@@ -1,6 +1,6 @@
 """
 Data from here
-https://www.census.gov/programs-surveys/sipp/data/datasets/2019-data/2019.html
+https://www.census.gov/programs-surveys/sipp/hatdata/datasets/2019-data/2019.html
 """
 
 from csv import DictReader
